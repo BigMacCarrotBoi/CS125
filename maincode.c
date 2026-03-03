@@ -20,6 +20,29 @@ void loadFile() {
 }
 
 
+void menu() {
+
+        printf("Welcome to the dating simulator chatbot!\n");
+	int choice=0;
+        printf("This game will allow you to build relationships with a variety of people and learn more about them.\n");
+        printf("\nMenu\n1. New Game\n2. Load Game\n3. Quit Game\n");
+        printf("Choice: ");
+        scanf("%d", &choice);
+        switch (choice) {
+                case 1:
+                        break;
+                case 2:
+                        loadFile();
+                case 3:
+			printf("Goodbye\n");
+			exit(EXIT_SUCCESS);
+                default:
+                        printf("Please try again and choose 1, 2, or 3.\n");
+			exit(EXIT_SUCCESS);
+                }
+}
+
+
 int main() {
 
 	srand(time(NULL));
@@ -27,23 +50,9 @@ int main() {
 	int choice=0;
 
 	/* This prints the menu and allows the user to pick a save file. */
-	printf("Welcome to the dating simulator chatbot!\n");
-	printf("This game will allow you to build relationships with a variety of people and learn more about them.\n");
-	printf("/nMenu/n1. New Game/n2. Load Game/n3. Quit Game/n");
-	printf("Choice: ");
-	scanf("%d", %choice);
-	switch (choice) {
-		case 1:
-			break;
-		case 2:
-			loadFile();
-		case 3:
-			break;
-		default:
-			printf("Please choose 1, 2, or 3.\n");
-		}
+	menu();
 
-        /* This lets the user choose who they want to talk to. */
+	/* This lets the user choose who they want to talk to. */
 	// sleep(3);
 	// include ascii art of the characters one by one
 	char character[20]="";
