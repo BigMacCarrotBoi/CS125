@@ -1,8 +1,3 @@
 # CS125
 
-
-
-
-this is epsteins dating sim
- 
-poop
+This program is a dating simulator/chatbot.
