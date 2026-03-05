@@ -1,0 +1,30 @@
+/********
+File: file_saving.c
+Author: Sophia Eads
+Version: 3/4/2026
+Description: start (mostly pseudocode) of file/game saving mechanism
+Resources: none.
+*********/
+
+/* goal for today: create pseudocode that:
+*
+* 1. Saves game under automatic name OR user-defined
+* 2. Stores file in dedicated directory
+*
+*****************************************************/
+
+// When user prompts to save file...
+
+char *current_file = (char *)malloc(20 * sizeof(char));
+printf("Save file as: %c", current_file);        // idk how to make it
+                                                 // so that the user can
+                                                 // change the appearance
+                                                 // directly... that's a later
+                                                 // issue!
+
+FILE *file = fopen(*current_file, "w");          // ! Verify permission type
+fprintf( EVERY SAVED VARIABLE :D);
+fclose(file);
+
+free(current_file);
+// When user prompts to open a file...
