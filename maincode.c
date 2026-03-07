@@ -1,53 +1,16 @@
 #include <stdio.h>
-#include "asciiart.h"
+#include "otherfunctions.c"
 #include <string.h>
 #include <stdlib.h>
 #include <unistd.h>
 #include <time.h>
-
-/* This function clears the terminal screen for the user. */
-void clearscreen() {
-
-	system("clear");
-
-}
-
-
-void loadFile() {
-
-	printf("");
-
-}
-
-
-void menu() {
-
-        printf("Welcome to the dating simulator chatbot!\n");
-	int choice=0;
-        printf("This game will allow you to build relationships with a variety of people and learn more about them.\n");
-        printf("\nMenu\n1. New Game\n2. Load Game\n3. Quit Game\n");
-        printf("Choice: ");
-        scanf("%d", &choice);
-        switch (choice) {
-                case 1:
-                        break;
-                case 2:
-                        loadFile();
-                case 3:
-			printf("Goodbye\n");
-			exit(EXIT_SUCCESS);
-                default:
-                        printf("Please try again and choose 1, 2, or 3.\n");
-			exit(EXIT_SUCCESS);
-                }
-}
-
 
 int main() {
 
 	srand(time(NULL));
 	clearscreen();
 	int choice=0;
+	printf("Welcome to the chatbot!\nThis game allows you to talk to a variety of people and build relationships with them.\n");
 
 	/* This prints the menu and allows the user to pick a save file. */
 	menu();
@@ -62,9 +25,9 @@ int main() {
 	if (choice==1)
 		strcpy(character, "Epstein");
 	if (choice==2)
-		strcpy(character, "Diddy");
+		strcpy(character, "Bill Clinton");
 	if (choice==3)
-		strcpy(character, "Donald Trump");
+		strcpy(character, "Micheal Jackson");
 	printf("You chose to talk to %s!\n", character);
 	
 return 0; }
