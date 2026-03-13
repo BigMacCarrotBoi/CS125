@@ -10,7 +10,7 @@ void epstein() {
     FILE *fptr;
     char ch;
 
-    fptr = fopen("epstein.txt", "r");
+    fptr = fopen("epsteinPool.txt", "r");
 
     if (fptr == NULL) {
         printf("Error: Could not open file.\n");
@@ -23,7 +23,6 @@ void epstein() {
 
     fclose(fptr);
 
-    return 0;
 }
 
 
@@ -44,7 +43,6 @@ void clinton() {
 
     fclose(fptr);
 
-    return 0;
 }
 
 
@@ -52,7 +50,7 @@ void mj() {
     FILE *fptr;
     char ch;
 
-    fptr = fopen("mj.txt", "r");
+    fptr = fopen("jackson.txt", "r");
 
     if (fptr == NULL) {
         printf("Error: Could not open file.\n");
@@ -65,6 +63,5 @@ void mj() {
 
     fclose(fptr);
 
-    return 0;
 }
 

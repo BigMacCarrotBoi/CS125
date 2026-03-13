@@ -14,7 +14,10 @@ int main() {
 
 	/* This prints the menu and allows the user to pick a save file. */
 	menu();
-
+	
+	clearscreen();
+	printf("This is Micheal Jackson.\n");
+	mj();
 	/* This lets the user choose who they want to talk to. */
 	// sleep(3);
 	// include ascii art of the characters one by one
