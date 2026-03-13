@@ -30,6 +30,7 @@ void loadFile() {
 void menu() {
 
         int choice=0;
+	// Add ascii art here.
         printf("\nMenu\n1. New Game\n2. Load Game\n3. Quit Game\n");
         printf("Choice: ");
         scanf("%d", &choice);
