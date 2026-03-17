@@ -16,8 +16,7 @@ int main() {
 	menu();
 	
 	clearscreen();
-	printf("This is Micheal Jackson.\n");
-	mj();
+	
 	/* This lets the user choose who they want to talk to. */
 	// sleep(3);
 	// include ascii art of the characters one by one
@@ -31,6 +30,9 @@ int main() {
 		strcpy(character, "Bill Clinton");
 	if (choice==3)
 		strcpy(character, "Micheal Jackson");
-	printf("You chose to talk to %s!\n", character);
+	printf("You walk up to talk to %s!\n", character);
+	printf("You catch %s's attention as they turn to you.\n", character);
+	// prints character art based on choice
+	if (choice==1) epstein(); if (choice==2) clinton(); if (choice==3) mj();
 	
 return 0; }
