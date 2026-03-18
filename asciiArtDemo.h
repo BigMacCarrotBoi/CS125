@@ -1,3 +1,5 @@
+//   New ascii art header file that prints line by line
+
 #ifndef ASCII_PRINTER_H
 #define ASCII_PRINTER_H
 
@@ -19,10 +21,10 @@ void print_ascii_lines(const char *filename, int delay_ms) {
     char buffer[1024]; // Buffer for one line of art
     while (fgets(buffer, sizeof(buffer), file)) {
         printf("%s", buffer);
-
+        
         // Force output to terminal immediately
         fflush(stdout);
-
+        
         // usleep uses microseconds (1 ms = 1000 us)
         usleep(delay_ms * 1000);
     }
