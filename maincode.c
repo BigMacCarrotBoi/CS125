@@ -36,6 +36,6 @@ int main() {
 	if (choice==1) strcpy(artFile, "epstein.txt");
 	if (choice==2) strcpy(artFile, "clinton.txt");
 	if (choice==3) strcpy(artFile, "jackson.txt");
-	print_ascii_lines(artFile, 35);
+	printChArt(artFile, 35);
 	
 return 0; }
