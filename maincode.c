@@ -1,5 +1,5 @@
 #include <stdio.h>
-#include "otherfunctions.c"
+#include "otherFunctions.c"
 #include <string.h>
 #include <stdlib.h>
 #include <unistd.h>
