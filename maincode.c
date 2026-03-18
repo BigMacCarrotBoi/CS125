@@ -33,6 +33,9 @@ int main() {
 	printf("You walk up to talk to %s!\n", character);
 	printf("You catch %s's attention as they turn to you.\n", character);
 	// prints character art based on choice
-	if (choice==1) epstein(); if (choice==2) clinton(); if (choice==3) mj();
+	if (choice==1) strcpy(artFile, "epstein.txt");
+	if (choice==2) strcpy(artFile, "clinton.txt");
+	if (choice==3) strcpy(artFile, "jackson.txt");
+	print_ascii_lines(artFile, 35);
 	
 return 0; }
