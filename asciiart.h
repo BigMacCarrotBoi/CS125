@@ -1,7 +1,7 @@
 //   New ascii art header file that prints line by line
 
-#ifndef ASCII_PRINTER_H
-#define ASCII_PRINTER_H
+#ifndef ASCIIART_H
+#define ASCIIART_H
 
 #include <stdio.h>
 #include <unistd.h> // Required for usleep()
