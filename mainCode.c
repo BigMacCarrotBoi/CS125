@@ -10,6 +10,7 @@ int main() {
 	srand(time(NULL));
 	clearscreen();
 	int choice=0;
+	char artFile[16];
 	printf("Welcome to the chatbot!\nThis game allows you to talk to a variety of people and build relationships with them.\n");
 
 	/* This prints the menu and allows the user to pick a save file. */
