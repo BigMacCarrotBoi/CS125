@@ -5,7 +5,7 @@ in the maincode.c program.
 ***************************************/
 
 #include <stdio.h>
-#include "asciiArtDemo.h"
+#include "asciiArt.h"
 #include "progressStruct.h"
 #include <string.h>
 #include <stdlib.h>
