@@ -11,7 +11,7 @@
  * @param filename  Path to the .txt file.
  * @param delay_ms  Milliseconds to wait between lines.
  */
-void print_ascii_lines(const char *filename, int delay_ms) {
+void printChArt(const char *filename, int delay_ms) {
     FILE *file = fopen(filename, "r");
     if (!file) {
         perror("Error opening file");
