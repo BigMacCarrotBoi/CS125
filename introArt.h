@@ -1,53 +1,20 @@
-/***************************************
-This file contains all the user-made
-functions that will be called later
-in the maincode.c program.
-***************************************/
+
+#ifndef ANIMATOR_H
+#define ANIMATOR_H
 
 #include <stdio.h>
-#include "asciiArt.h"
-#include "progressStruct.h"
-#include <string.h>
 #include <stdlib.h>
 #include <unistd.h>
-#include <time.h>
 
-/* This function clears the terminal screen for the user. */
-void clearscreen() {
+/**
+ * Reads the content of a text file into a dynamically allocated string.
+ * Remember to free() the returned pointer!
+ */
 
-        system("clear");
-
-}
-
-
-void loadFile() {
-
-        printf("");
-
-}
-
-
-void menu() {
-
-        int choice=0;
-	// Add ascii art here.
-        printf("\nMenu\n1. New Game\n2. Load Game\n3. Quit Game\n");
-        printf("Choice: ");
-        scanf("%d", &choice);
-        switch (choice) {
-                case 1:
-                        break;
-                case 2:
-                        loadFile();
-                case 3:
-                        printf("Goodbye\n");
-                        exit(EXIT_SUCCESS);
-                default:
-                        printf("Please try again and choose 1, 2, or 3.\n");
-                        exit(EXIT_SUCCESS);
-                }
-}
-
+/**
+ * Loads three frames and cycles through them.
+ */
+ 
  char* frame(const char* filename) {
     FILE* file = fopen(filename, "r");
     if (!file) {
@@ -104,7 +71,11 @@ void menuIntro(const char* f1, const char* f2, const char* f3, int loops, int sp
     while (*text != '\0') {
         printf("%c", *text);
         fflush(stdout);
-        usleep(20000); 
+        usleep(30000); 
         text++;
     }
 }
+
+
+
+#endif
