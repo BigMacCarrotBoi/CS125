@@ -34,11 +34,22 @@
     return buffer;
 }
  
-void menuIntro(const char* f1, const char* f2, const char* f3, int loops, int speed_ms) {
-    char* frames[3];
+void menuIntro(int loops, int speed_ms) {
+    const char* f1 = "heart1.txt";
+    const char* f2 = "heart1.txt";
+    const char* f3 = "heart1.txt";
+    const char* f4 = "epsteinq.txt";
+    const char* f5 = "clinnon.txt";
+    const char* f6 = "jackon.txt";
+    
+    char* frames[6];
     frames[0] = frame(f1);
     frames[1] = frame(f2);
     frames[2] = frame(f3);
+    frames[3] = frame(f4);
+    frames[4] = frame(f5);
+    frames[5] = frame(f6);
+
     int i = 0; int j = 0;
 
     // Error checking

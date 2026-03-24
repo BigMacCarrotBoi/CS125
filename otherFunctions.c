@@ -48,6 +48,17 @@ void menu() {
                 }
 }
 
+
+
+/**
+ * Reads the content of a text file into a dynamically allocated string.
+ * Remember to free() the returned pointer!
+ */
+
+/**
+ * Loads three frames and cycles through them.
+ */
+ 
  char* frame(const char* filename) {
     FILE* file = fopen(filename, "r");
     if (!file) {
@@ -67,22 +78,33 @@ void menu() {
     return buffer;
 }
  
-void menuIntro(const char* f1, const char* f2, const char* f3, int loops, int speed_ms) {
-    char* frames[3];
+void menuIntro(int loops, int speed_ms) {
+    const char* f1 = "heart1.txt";
+    const char* f2 = "heart2.txt";
+    const char* f3 = "heart3.txt";
+    const char* f4 = "epsteinq.txt";
+    const char* f5 = "clinnon.txt";
+    const char* f6 = "jackon.txt";
+    
+    char* frames[6];
     frames[0] = frame(f1);
     frames[1] = frame(f2);
     frames[2] = frame(f3);
+    frames[3] = frame(f4);
+    frames[4] = frame(f5);
+    frames[5] = frame(f6);
+
     int i = 0; int j = 0;
 
     // Error checking
-    for (i = 0; i < 3; i++) {
+    for (i = 0; i < 6; i++) {
         if (frames[i] == NULL) return; 
     }
 
     printf("\033[?25l"); // Hide cursor
 
     for (i = 0; i < loops; i++) {
-        for (j = 0; j < 3; j++) {
+        for (j = 0; j < 6; j++) {
             // Move cursor to top-left and clear screen
             printf("\033[H\033[J");
             printf("%s\n", frames[j]);
@@ -95,7 +117,7 @@ void menuIntro(const char* f1, const char* f2, const char* f3, int loops, int sp
     printf("\033[?25h"); // Show cursor
 
     // Clean up memory
-    for (i = 0; i < 3; i++) {
+    for (i = 0; i < 6; i++) {
         free(frames[i]);
     } 
 
@@ -104,7 +126,7 @@ void menuIntro(const char* f1, const char* f2, const char* f3, int loops, int sp
     while (*text != '\0') {
         printf("%c", *text);
         fflush(stdout);
-        usleep(20000); 
+        usleep(30000); 
         text++;
     }
 }

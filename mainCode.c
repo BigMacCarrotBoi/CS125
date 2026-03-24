@@ -16,7 +16,7 @@ int main() {
 	int choice=0;
 	char artFile[16];
 
-	menuIntro("heart1.txt", "heart2.txt", "heart3.txt", 4, 100);
+	menuIntro(4,300);
   
 	/* This prints the menu and allows the user to pick a save file. */
 	menu();
