@@ -56,7 +56,7 @@ int jacksonD1(int ch1, Progress *p, int slot) {
 
             case 4:
                 speak(txt, "1.4s", "1.4e");
-                p->inDialogueChoice = 0;
+                p->j_inChoice = 0;
                 saveGame(slot, p);
                 return 1;
 
