@@ -10,7 +10,7 @@ void saveGame(int slot, Progress *p);
 
 // ================= DIALOGUE 1 =================
 int jacksonD1(int ch1, Progress *p, int slot) {
-    const char *txt = "clintonDialogue.txt";
+    const char *txt = "jacksonDialogue.txt";
 
     int exitCh1 = 0;
 
@@ -76,7 +76,7 @@ int jacksonD1(int ch1, Progress *p, int slot) {
 
 // ================= DIALOGUE 2 =================
 int jacksonD2(int ch2, Progress *p, int slot) {
-    const char *txt = "epsteinDialogue.txt";
+    const char *txt = "jacksonDialogue.txt";
 
     int exitCh2 = 0;
 
@@ -138,7 +138,7 @@ int jacksonD2(int ch2, Progress *p, int slot) {
 
 // ================= DIALOGUE 3 =================
 int jacksonD3(int ch3, Progress *p, int slot) {
-    const char *txt = "epsteinDialogue.txt";
+    const char *txt = "jacksonDialogue.txt";
 
     int exitCh3 = 0;
 
@@ -200,7 +200,14 @@ int jacksonD3(int ch3, Progress *p, int slot) {
 
 // ================= DIALOGUE 4 =================
 int jacksonD4(int ch4, Progress *p, int slot) {
-    const char *txt = "epsteinDialogue.txt";
+    const char *txt = "jacksonDialogue.txt";
+
+    if (p->j4 != 0) {
+    if (p->j4 == 1) speak(txt, "endObliv.s", "endObliv.e");
+    if (p->j4 == 2) speak(txt, "endGood.s", "endGood.e");
+    if (p->j4 == 3) speak(txt, "endEvil.s", "endEvil.e");
+    if (p->j4 == 4) speak(txt, "endNeutral.s", "endNeutral.e");
+    return 0;
 
     int exitCh4 = 0;
 
@@ -225,18 +232,21 @@ int jacksonD4(int ch4, Progress *p, int slot) {
         switch (ch4) {
             case 1:
                 speak(txt, "4.1s", "4.1e");
+                speak(txt, "endObliv.s", "endObliv.e");
                 p->j4 = 1;
                 exitCh4 = 1;
                 break;
 
             case 2:
                 speak(txt, "4.2s", "4.2e");
+                speak(txt, "endGood.s", "endGood.e");
                 p->j4 = 2;
                 exitCh4 = 1;
                 break;
 
             case 3:
                 speak(txt, "4.3s", "4.3e");
+                speak(txt, "endEvil.s", "endEvil.e");
                 p->j4 = 3;
                 exitCh4 = 1;
                 break;
