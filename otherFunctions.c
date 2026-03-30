@@ -209,8 +209,7 @@ void checkEpsteinEnding(Progress *p) {
         printf("\n[BAD ENDING]\n");
     }
     else {
-        printf("\n[NEUTRAL ENDING]\n");
-		speak("epsteinDialogue.txt", "endNeutral.s", "endNeutral.e");
+        printf("\n[NEUTRAL ENDING]\nYou parted ways quietly.\n");
     }
 }
 
@@ -226,8 +225,7 @@ void checkClintonEnding(Progress *p) {
         printf("\n[CLINTON: BAD ENDING]\n");
     }
     else {
-        printf("\n[CLINTON: NEUTRAL ENDING]\n");
-		speak("clintonDialogue.txt", "endNeutral.s", "endNeutral.e");
+        printf("\n[CLINTON: NEUTRAL ENDING]\nYou parted ways quietly.\n");
     }
 }
 
@@ -243,8 +241,7 @@ void checkJacksonEnding(Progress *p) {
         printf("\n[JACKSON: BAD ENDING]\n");
     }
     else {
-        printf("\n[JACKSON: NEUTRAL ENDING]\n");
-		speak("jacksonDialogue.txt", "endNeutral.s", "endNeutral.e");
+        printf("\n[JACKSON: NEUTRAL ENDING]\nYou parted ways quietly.\n");
     }
 }
 
