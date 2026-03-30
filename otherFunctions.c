@@ -32,7 +32,8 @@ void saveGame(int slot, Progress *p) {
     fprintf(f, "%d %d %d %d\n", p->c1, p->c2, p->c3, p->c4);
     fprintf(f, "%d %d %d %d\n", p->j1, p->j2, p->j3, p->j4);
 
-    fprintf(f, "%d %d\n", p->currentDialogue, p->inDialogueChoice);
+    fprintf(f, "%d %d\n", p->currentDialogue, p->inDialogueChoice)
+	fprintf(f, "%d %d %d\n", p->epsteinDone, p->clintonDone, p->jacksonDone);
 
     fclose(f);
 }
@@ -85,7 +86,8 @@ Progress loadGame(int slot) {
     fscanf(f, "%d %d %d %d", &p.j1, &p.j2, &p.j3, &p.j4);
 
     fscanf(f, "%d %d", &p.currentDialogue, &p.inDialogueChoice);
-
+	fscanf(f, "%d %d %d", &p->epsteinDone, &p->clintonDone, &p->jacksonDone);
+	
     fclose(f);
     return p;
 }
@@ -265,7 +267,7 @@ void runEpstein(Progress *p, int slot) {
     checkEpsteinEnding(p);
 
     // Reset after completion
-    p->currentDialogue = 0;
+    p->epsteinDone = 1;
     p->inDialogueChoice = 0;
     saveGame(slot, p);
 }
@@ -293,9 +295,7 @@ void runClinton(Progress *p, int slot) {
     // Ending
     checkEpsteinEnding(p);
 
-    // Reset after completion
-    p->currentDialogue = 0;
-    p->inDialogueChoice = 0;
+    p->clintonDone = 1;
     saveGame(slot, p);
 }
 
@@ -324,7 +324,7 @@ void runJackson(Progress *p, int slot) {
     checkEpsteinEnding(p);
 
     // Reset after completion
-    p->currentDialogue = 0;
+    p->jacksonDone = 1;
     p->inDialogueChoice = 0;
     saveGame(slot, p);
 }
