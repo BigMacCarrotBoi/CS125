@@ -1,9 +1,15 @@
+#ifndef PROGRESS_STRUCT_H
+#define PROGRESS_STRUCT_H
+
 typedef struct {
-	int choice1;
-	int choice2;
-	int choice3;
-	int choice4;
-	int choice5;
-	int choice6;
-	int choice7;
-} progress;
+    int d1, d2, d3, d4;
+    int c1, c2, c3, c4;
+    int j1, j2, j3, j4;
+
+    int currentDialogue;
+    int inDialogueChoice;
+
+    char saveName[50];
+} Progress;
+
+#endif
