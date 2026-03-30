@@ -41,31 +41,31 @@ Epstein glances at you for a moment as you walk away, before losing interest.
 
 intro2S
 ------------------------------------------------------------------------
-Epstein looks up from his book, holding it loosely with the dry friction
-of his index and thumb.
+Epstein returns to his book, crossing his leg over the other. He settles into 
+his chair with a loud sigh.
 intro2E
 
 
 2.os
-(1) "How are you doing this morning?"
-(2) "What are you reading?"
-(3) "You have a booger in your nose."
+(1) "That sigh of yours didn't sound optimistic, are you sure your morning's alright?"
+(2) "Where'd you get those shoes?"
+(3) "That's a small book... you should really be reading bigger books for your age."
 (4) Leave the conversation.
 2.oe
 
 2.1s
-Epstein briefly looks off before gathering his response:
-"I'm doing as well as I can be this early in the day."
+Epstein lowers his book and takes off his glasses:
+"Yeah, I've just been up all night, this Undertale fanfic... i-it's got me hooked! haha..."
 2.1e
 
 2.2s
-Epstein glances down at his book before reluctantly stating:
-"It- it's Undertale Fanfic; I quite like the Chara character."
+Epstein lifts up his foot and looks at his foot with a chuckle:
+"These? Oh, my mom got me these for my birthday, they light up when I stomp!"
 2.2e
 
 2.3s
-Epstein quickly moves his free hand to block his nose:
-"N-n-no! I was picking it just a moment ago and I dug all the gold out!"
+Epstein looks up at you defensively with furrowed eyebrows:
+"D-don't talk to me like that! My mom said I-I can read anything! Kindergarten books, even!"
 2.3e
 
 2.4s
@@ -76,31 +76,36 @@ Epstein glances at you for a moment as you walk away, before losing interest.
 
 intro3S
 ------------------------------------------------------------------------
-Epstein looks up from his book, holding it loosely with the dry friction
-of his index and thumb.
+Epstein closes his book and plops it onto the table beside him. He looks up at 
+the ceiling for a while, then starts to ask a question:
+"So, w-what have you been up to recently?"
 intro3E
 
 
 3.os
-(1) "How are you doing this morning?"
-(2) "What are you reading?"
-(3) "You have a booger in your nose."
+(1) "I just got back from a 5-week meditation camp! I'm so zen now; you should try it."
+(2) "That's personal..?"
+(3) "Oh nothing much ahaha..."
 (4) Leave the conversation.
 3.oe
 
 3.1s
-Epstein briefly looks off before gathering his response:
-"I'm doing as well as I can be this early in the day."
+Epstein leans forward with a surprised expression:
+"Meditation?! Woah, that sounds so cool; I'm gonna have to try that sometime."
 3.1e
 
 3.2s
-Epstein glances down at his book before reluctantly stating:
-"It- it's Undertale Fanfic; I quite like the Chara character."
+Epstein looks down, disappointed at your response:
+"Geez, I was gonna ask if you wanted to come to my mansion this weekend!"
 3.2e
 
 3.3s
-Epstein quickly moves his free hand to block his nose:
-"N-n-no! I was picking it just a moment ago and I dug all the gold out!"
+Epstein pulls out a notepad and pen from his chest pocket:
+"O-oh that's..." he seems to be writing something important down. He glances up at you...
+
+And looks right back at his notepad.
+
+"I'm having a neat get-together at my mansion... Not that y-you'd want to come, of course."
 3.3e
 
 3.4s
@@ -111,45 +116,62 @@ Epstein glances at you for a moment as you walk away, before losing interest.
 
 intro4S
 ------------------------------------------------------------------------
-Epstein looks up from his book, holding it loosely with the dry friction
-of his index and thumb.
+Epstein places his head in his hand and twirls a pen in his hands.
 intro4E
 
 
 4.os
-(1) "How are you doing this morning?"
-(2) "What are you reading?"
-(3) "You have a booger in your nose."
+(1) "What are your plans for tonight?"
+(2) "I want to play Among Us right now."
+(3) "Honestly, you should really get a haircut."
 (4) Leave the conversation.
 4.oe
 
 4.1s
-Epstein briefly looks off before gathering his response:
-"I'm doing as well as I can be this early in the day."
+Epstein looks off to the side deep in thought with his hand on his chin:
+"I haven't given it much thought, actually... I think I should do something
+more meaningful."
 4.1e
 
 4.2s
-Epstein glances down at his book before reluctantly stating:
-"It- it's Undertale Fanfic; I quite like the Chara character."
+Epstein glares at you:
+"T-that game? My goodness, I haven't played that game in eons!! I think I know
+something you'd really have fun doing..."
 4.2e
 
 4.3s
-Epstein quickly moves his free hand to block his nose:
-"N-n-no! I was picking it just a moment ago and I dug all the gold out!"
+Epstein sits up and brushes through his short, gray locks briefly:
+"Awugh, my hair is... it's fine! I can't cut it, that'd be... ugh, I can't
+even fathom what cutting my hair would do."
 4.3e
 
 4.4s
 Epstein glances at you for a moment as you walk away, before losing interest.
 4.4e
 
-endObliv.s
-endObliv.e
-
 endGood.s
+Epstein waves goodbye with a smirk on his face...
+
+When he comes back, his hairappears neater and his face is glowing. He's completely 
+different now, in fact...
+
+"I am not Epstein, I'm Palm Beach Pete!!"
 endGood.e
 
 endEvil.s
+Epstein takes you with him into his porsche and drives into a secret underground tunnel... 
+The tunnel gets dark and you become very sleepy...
+
+Suddenly, when you wake up, you're in an unfamiliar room. You roll out of a bed which reek
+of discomfort and open the sheer curtains to see to your discomfort...
+
+You're stuck on an island.
 endEvil.e
 
 endNeutral.s
+Something about this man is certainly off as he looks at you with his head tilted and mouth is
+slightly grinning.
+
+You wave him goodbye with caution as you calmly leave the room. Around the corner, you frantically
+pull out your phone and call the police. Certainly, this man has something eerie going on...
 endNeutral.e
