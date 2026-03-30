@@ -249,7 +249,6 @@ int epsteinD4(int ch4, Progress *p, int slot) {
 
             default:
                 speak(txt, "errorS", "errorEnd");
-                p->inDialogueChoice = 0;
                 break;
         }
     }
