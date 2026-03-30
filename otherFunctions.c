@@ -93,6 +93,9 @@ Progress loadGame(int slot) {
 }
 
 int newGame(Progress *p) {
+	p->epsteinDone = 0;
+	p->clintonDone = 0;
+	p->jacksonDone = 0;
     printf("Enter save name: ");
     scanf("%49s", p->saveName);
 
