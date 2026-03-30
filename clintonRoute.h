@@ -57,7 +57,6 @@ int clintonD1(int ch1, Progress *p, int slot) {
             case 4:
                 speak(txt, "1.4s", "1.4e");
                 p->inDialogueChoice = 0;
-                p->currentDialogue = 0;
                 saveGame(slot, p);
                 return 1;
 
@@ -121,7 +120,6 @@ int clintonD2(int ch2, Progress *p, int slot) {
             case 4:
                 speak(txt, "2.4s", "2.4e");
                 p->inDialogueChoice = 0;
-                p->currentDialogue = 0;
                 saveGame(slot, p);
                 return 1;
 
@@ -184,7 +182,6 @@ int clintonD3(int ch3, Progress *p, int slot) {
             case 4:
                 speak(txt, "3.4s", "3.4e");
                 p->inDialogueChoice = 0;
-                p->currentDialogue = 0;
                 saveGame(slot, p);
                 return 1;
 
@@ -247,7 +244,6 @@ int clintonD4(int ch4, Progress *p, int slot) {
             case 4:
                 speak(txt, "4.4s", "4.4e");
                 p->inDialogueChoice = 0;
-                p->currentDialogue = 0;
                 saveGame(slot, p);
                 return 1;
 
