@@ -18,55 +18,108 @@ const char *saveFiles[MAX_SAVES] = {
   "save1.txt", "save2.txt", "save3.txt"
 };
 
+// CLEAR SCREEN FUNCTION
 void clearscreen() {
   system("clear");
 }
 
+// ================= VALIDATION =================
+int isValidName(const char *name) {
+    if (strlen(name) == 0) return 0;
+    int i = 0;
+    for (i = 0; name[i]; i++) {
+        if (name[i] < 32 || name[i] > 126) return 0;
+    }
+    return 1;
+}
+
+int nameExists(const char *name) {
+    int i = 0;
+    for (i = 0; i < MAX_SAVES; i++) {
+        FILE *f = fopen(saveFiles[i], "r");
+        if (f) {
+            char existing[50];
+            fgets(existing, sizeof(existing), f);
+            existing[strcspn(existing, "\n")] = 0;
+            fclose(f);
+
+            if (strcmp(existing, name) == 0)
+                return 1;
+        }
+    }
+    return 0;
+}
+
+// ================= SAVE =================
 void saveGame(int slot, Progress *p) {
   FILE *f = fopen(saveFiles[slot], "w");
-    if (!f) return;
+  if (!f) return;
 
-    fprintf(f, "%s\n", p->saveName);
+  fprintf(f, "%s\n", p->saveName);
 
-    fprintf(f, "%d %d %d %d\n", p->d1, p->d2, p->d3, p->d4);
-    fprintf(f, "%d %d %d %d\n", p->c1, p->c2, p->c3, p->c4);
-    fprintf(f, "%d %d %d %d\n", p->j1, p->j2, p->j3, p->j4);
+  fprintf(f, "%d %d %d %d\n", p->d1, p->d2, p->d3, p->d4);
+  fprintf(f, "%d %d %d %d\n", p->c1, p->c2, p->c3, p->c4);
+  fprintf(f, "%d %d %d %d\n", p->j1, p->j2, p->j3, p->j4);
 
-	fprintf(f, "%d %d\n", p->e_currentDialogue, p->e_inChoice);
-	fprintf(f, "%d %d\n", p->c_currentDialogue, p->c_inChoice);
-	fprintf(f, "%d %d\n", p->j_currentDialogue, p->j_inChoice);
+  fprintf(f, "%d %d\n", p->e_currentDialogue, p->e_inChoice);
+  fprintf(f, "%d %d\n", p->c_currentDialogue, p->c_inChoice);
+  fprintf(f, "%d %d\n", p->j_currentDialogue, p->j_inChoice);
 
-	fprintf(f, "%d %d %d\n", p->epsteinDone, p->clintonDone, p->jacksonDone);
+  fprintf(f, "%d %d %d\n", p->epsteinDone, p->clintonDone, p->jacksonDone);
 
-    fclose(f);
+  fclose(f);
 }
 
+// ================= DELETE =================
 void deleteSave() {
   int slot;
-    printf("Enter save slot to delete (1-3): ");
-    scanf("%d", &slot);
+  printf("Enter save slot to delete (1-3): ");
+  scanf("%d", &slot);
 
-    if (slot < 1 || slot > 3) return;
-      remove(saveFiles[slot - 1]);
-      printf("Save deleted.\n");
+  if (slot < 1 || slot > 3) return;
+
+  remove(saveFiles[slot - 1]);
+  printf("Save deleted.\n");
 }
 
+// ================= LIST SAVES =================
 int listSaves() {
     printf("\nSave Slots:\n");
     int i = 0;
 
     for (i = 0; i < MAX_SAVES; i++) {
         FILE *f = fopen(saveFiles[i], "r");
+
         if (f) {
-            char name[50];
-            fgets(name, sizeof(name), f);
-            name[strcspn(name, "\n")] = 0;
-            printf("%d. %s\n", i + 1, name);
+            Progress temp = {0};
+
+            fgets(temp.saveName, sizeof(temp.saveName), f);
+            temp.saveName[strcspn(temp.saveName, "\n")] = 0;
+
+            fscanf(f, "%d %d %d %d", &temp.d1, &temp.d2, &temp.d3, &temp.d4);
+            fscanf(f, "%d %d %d %d", &temp.c1, &temp.c2, &temp.c3, &temp.c4);
+            fscanf(f, "%d %d %d %d", &temp.j1, &temp.j2, &temp.j3, &temp.j4);
+
+            fscanf(f, "%d %d", &temp.e_currentDialogue, &temp.e_inChoice);
+            fscanf(f, "%d %d", &temp.c_currentDialogue, &temp.c_inChoice);
+            fscanf(f, "%d %d", &temp.j_currentDialogue, &temp.j_inChoice);
+
+            fscanf(f, "%d %d %d", &temp.epsteinDone, &temp.clintonDone, &temp.jacksonDone);
+
             fclose(f);
+
+            printf("%d. %s [E:%s] [C:%s] [J:%s]\n",
+                i + 1,
+                temp.saveName,
+                temp.epsteinDone ? "End Done" : "End Pending",
+                temp.clintonDone ? "End Done" : "End Pending",
+                temp.jacksonDone ? "End Done" : "End Pending"
+            );
         } else {
             printf("%d. [Empty]\n", i + 1);
         }
     }
+
 
     int choice;
     printf("Choose slot: ");
@@ -75,6 +128,7 @@ int listSaves() {
     return choice - 1;
 }
 
+// ================= LOAD =================
 Progress loadGame(int slot) {
     Progress p = {0};
 
@@ -88,22 +142,41 @@ Progress loadGame(int slot) {
     fscanf(f, "%d %d %d %d", &p.c1, &p.c2, &p.c3, &p.c4);
     fscanf(f, "%d %d %d %d", &p.j1, &p.j2, &p.j3, &p.j4);
 
-	fscanf(f, "%d %d", &p.e_currentDialogue, &p.e_inChoice);
-	fscanf(f, "%d %d", &p.c_currentDialogue, &p.c_inChoice);
-	fscanf(f, "%d %d", &p.j_currentDialogue, &p.j_inChoice);
-	
-	fscanf(f, "%d %d %d", &p.epsteinDone, &p.clintonDone, &p.jacksonDone);
-	
+    fscanf(f, "%d %d", &p.e_currentDialogue, &p.e_inChoice);
+    fscanf(f, "%d %d", &p.c_currentDialogue, &p.c_inChoice);
+    fscanf(f, "%d %d", &p.j_currentDialogue, &p.j_inChoice);
+
+    fscanf(f, "%d %d %d", &p.epsteinDone, &p.clintonDone, &p.jacksonDone);
+
     fclose(f);
     return p;
 }
 
+// ================= NEW GAME =================
 int newGame(Progress *p) {
-	p->epsteinDone = 0;
-	p->clintonDone = 0;
-	p->jacksonDone = 0;
-    printf("Enter save name: ");
-    scanf("%49s", p->saveName);
+    char buffer[50];
+
+    p->epsteinDone = 0;
+    p->clintonDone = 0;
+    p->jacksonDone = 0;
+
+    while (1) {
+        printf("Enter save name: ");
+        scanf("%49s", buffer);
+
+        if (!isValidName(buffer)) {
+            printf("Invalid name.\n");
+            continue;
+        }
+
+        if (nameExists(buffer)) {
+            printf("Name already exists.\n");
+            continue;
+        }
+
+        strcpy(p->saveName, buffer);
+        break;
+    }
 
     int slot = listSaves();
     saveGame(slot, p);
@@ -111,27 +184,17 @@ int newGame(Progress *p) {
     return slot;
 }
 
+// ================= MENU =================
 int menu() {
     int choice;
-
     printf("\n1. New Game\n2. Load Game\n3. Delete Save\n4. Quit\nChoice: ");
     scanf("%d", &choice);
-
     return choice;
 }
 
-
-
-/**
- * Reads the content of a text file into a dynamically allocated string.
- * Remember to free() the returned pointer!
- */
-
-/**
- * Loads three frames and cycles through them.
- */
+// Reads the content of a text file into a dynamically allocated string.
  
- char* frame(const char* filename) {
+char* frame(const char* filename) {
     	FILE* file = fopen(filename, "r");
     	if (!file) {
         	fprintf(stderr, "Error: Could not open %s\n", filename);
