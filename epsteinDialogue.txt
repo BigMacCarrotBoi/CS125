@@ -1,0 +1,155 @@
+#######################################################################
+
+errorS
+Epstein looks confused:
+"Eh-er, could you, uh, repeat that?"
+errorEnd
+
+intro1S
+------------------------------------------------------------------------
+Epstein looks up from his book, holding it loosely with the dry friction
+of his index and thumb.
+intro1E
+
+1.os
+(1) "How are you doing this morning?"
+(2) "What are you reading?"
+(3) "You have a booger in your nose."
+(4) Leave the conversation.
+1.oe
+
+1.1s
+Epstein briefly looks off before gathering his response:
+"I'm doing as well as I can be this early in the day."
+1.1e
+
+1.2s
+Epstein glances down at his book before reluctantly stating:
+"It- it's Undertale Fanfic; I quite like the Chara character."
+1.2e
+
+1.3s
+Epstein quickly moves his free hand to block his nose:
+"N-n-no! I was picking it just a moment ago and I dug all the gold out!"
+1.3e
+
+1.4s
+Epstein glances at you for a moment as you walk away, before losing interest.
+1.4e
+
+-----------------------------------------------------------------------------
+
+intro2S
+------------------------------------------------------------------------
+Epstein looks up from his book, holding it loosely with the dry friction
+of his index and thumb.
+intro2E
+
+
+2.os
+(1) "How are you doing this morning?"
+(2) "What are you reading?"
+(3) "You have a booger in your nose."
+(4) Leave the conversation.
+2.oe
+
+2.1s
+Epstein briefly looks off before gathering his response:
+"I'm doing as well as I can be this early in the day."
+2.1e
+
+2.2s
+Epstein glances down at his book before reluctantly stating:
+"It- it's Undertale Fanfic; I quite like the Chara character."
+2.2e
+
+2.3s
+Epstein quickly moves his free hand to block his nose:
+"N-n-no! I was picking it just a moment ago and I dug all the gold out!"
+2.3e
+
+2.4s
+Epstein glances at you for a moment as you walk away, before losing interest.
+2.4e
+
+-----------------------------------------------------------------------------
+
+intro3S
+------------------------------------------------------------------------
+Epstein looks up from his book, holding it loosely with the dry friction
+of his index and thumb.
+intro3E
+
+
+3.os
+(1) "How are you doing this morning?"
+(2) "What are you reading?"
+(3) "You have a booger in your nose."
+(4) Leave the conversation.
+3.oe
+
+3.1s
+Epstein briefly looks off before gathering his response:
+"I'm doing as well as I can be this early in the day."
+3.1e
+
+3.2s
+Epstein glances down at his book before reluctantly stating:
+"It- it's Undertale Fanfic; I quite like the Chara character."
+3.2e
+
+3.3s
+Epstein quickly moves his free hand to block his nose:
+"N-n-no! I was picking it just a moment ago and I dug all the gold out!"
+3.3e
+
+3.4s
+Epstein glances at you for a moment as you walk away, before losing interest.
+3.4e
+
+-----------------------------------------------------------------------------
+
+intro4S
+------------------------------------------------------------------------
+Epstein looks up from his book, holding it loosely with the dry friction
+of his index and thumb.
+intro4E
+
+
+4.os
+(1) "How are you doing this morning?"
+(2) "What are you reading?"
+(3) "You have a booger in your nose."
+(4) Leave the conversation.
+4.oe
+
+4.1s
+Epstein briefly looks off before gathering his response:
+"I'm doing as well as I can be this early in the day."
+4.1e
+
+4.2s
+Epstein glances down at his book before reluctantly stating:
+"It- it's Undertale Fanfic; I quite like the Chara character."
+4.2e
+
+4.3s
+Epstein quickly moves his free hand to block his nose:
+"N-n-no! I was picking it just a moment ago and I dug all the gold out!"
+4.3e
+
+4.4s
+Epstein glances at you for a moment as you walk away, before losing interest.
+4.4e
+
+endObliv.s
+endObliv.e
+
+endGood.s
+endGood.e
+
+endEvil.s
+endEvil.e
+
+endNeutral.s
+endNeutral.e

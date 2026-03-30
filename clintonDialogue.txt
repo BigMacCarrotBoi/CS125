@@ -1,0 +1,193 @@
+#######################################################################
+
+errorS
+Clinton tilts his head slightly:
+"Now hold on a second—I didn't quite catch that."
+errorEnd
+
+intro1S
+------------------------------------------------------------------------
+Bill Clinton stands with a relaxed posture, offering a practiced smile
+as you approach.
+intro1E
+
+1.os
+(1) "Uh... hey."
+(2) "It's an honor to meet you."
+(3) "You're kind of shady."
+(4) Leave the conversation.
+1.oe
+
+1.1s
+He nods casually.
+"Hey there. How you doin'?"
+1.1e
+
+1.2s
+He smiles wider.
+"Well I appreciate that—always nice to meet someone friendly."
+1.2e
+
+1.3s
+He raises an eyebrow.
+"Now that's a strong way to start a conversation."
+1.3e
+
+1.4s
+He watches you step away, unfazed.
+1.4e
+
+-----------------------------------------------------------------------------
+
+intro2S
+------------------------------------------------------------------------
+Clinton shifts his stance, maintaining eye contact.
+intro2E
+
+2.os
+(1) "So... what do you do these days?"
+(2) "What was your favorite part of leadership?"
+(3) "You probably messed a lot of things up."
+(4) Leave the conversation.
+2.oe
+
+2.1s
+He chuckles lightly.
+"Oh, a little bit of everything these days."
+2.1e
+
+2.2s
+He nods thoughtfully.
+"Helping people. Making a difference where you can—that's what matters."
+2.2e
+
+2.3s
+His smile tightens slightly.
+"Well, not everyone's going to agree with every decision."
+2.3e
+
+2.4s
+He glances away as you disengage.
+2.4e
+
+-----------------------------------------------------------------------------
+
+intro3S
+------------------------------------------------------------------------
+Clinton leans in slightly, engaged.
+intro3E
+
+3.os
+(1) "Yeah... okay."
+(2) "That actually sounds meaningful."
+(3) "Sounds like excuses to me."
+(4) Leave the conversation.
+3.oe
+
+3.1s
+He nods politely.
+"I hear ya."
+3.1e
+
+3.2s
+He smiles genuinely.
+"It really is. You just try to do your best."
+3.2e
+
+3.3s
+He exhales slowly.
+"Well, you're entitled to your opinion."
+3.3e
+
+3.4s
+He straightens up, distancing himself.
+3.4e
+
+-----------------------------------------------------------------------------
+
+intro4S
+------------------------------------------------------------------------
+Clinton adjusts his jacket, waiting for your final words.
+intro4E
+
+4.os
+(1) "Alright, see ya."
+(2) "I'd like to talk again sometime."
+(3) "This was pointless."
+(4) Leave the conversation.
+4.oe
+
+4.1s
+He nods casually.
+"Take care now."
+4.1e
+
+4.2s
+He smiles warmly.
+"I'd like that. Conversations like this matter."
+4.2e
+
+4.3s
+His expression hardens slightly.
+"Well, can't win 'em all."
+4.3e
+
+4.4s
+He watches you leave, expression unreadable.
+4.4e
+
+---------------------------------------------------------------------
+
+endObliv.s
+------------------------------------------------------------------------
+Clinton shrugs lightly.
+
+"Well, that was something."
+
+The moment passes without much impact.
+
+Just another conversation in a long list.
+endObliv.e
+
+
+endGood.s
+------------------------------------------------------------------------
+Clinton smiles with genuine warmth.
+
+"You know, I enjoyed that."
+
+For a moment, the practiced persona fades—
+and something more real comes through.
+
+"Take care now."
+
+You leave feeling like you made a real connection.
+endGood.e
+
+
+endEvil.s
+------------------------------------------------------------------------
+Clinton's expression turns distant.
+
+He gives a polite nod—but it's clearly forced.
+
+"Alright then."
+
+Whatever connection could have formed is gone.
+
+Some conversations aren't worth continuing.
+endEvil.e
+
+
+endNeutral.s
+------------------------------------------------------------------------
+Clinton adjusts his posture and exhales.
+
+"Well... that's how it goes sometimes."
+
+Not bad. Not good.
+
+Just another passing interaction.
+
+He moves on, and so do you.
+endNeutral.e

@@ -1,0 +1,175 @@
+#######################################################################
+
+errorS
+Michael tilts his head:
+"Hee-hee... I didn't quite catch that."
+errorEnd
+
+intro1S
+------------------------------------------------------------------------
+Michael Jackson turns gracefully as you approach.
+A soft smile forms.
+intro1E
+
+1.os
+(1) "Uh... hi."
+(2) "I'm a big fan."
+(3) "You're overrated."
+(4) Leave the conversation.
+1.oe
+
+1.1s
+He nods politely.
+"Hello there."
+1.1e
+
+1.2s
+He lights up.
+"Thank you... that means a lot."
+1.2e
+
+1.3s
+He pauses.
+"Oh... I see."
+1.3e
+
+1.4s
+He watches you drift away silently.
+1.4e
+
+-----------------------------------------------------------------------------
+
+intro2S
+------------------------------------------------------------------------
+Michael shifts his stance, attentive.
+intro2E
+
+2.os
+(1) "So... yeah."
+(2) "What inspires your music?"
+(3) "Your music isn't that good."
+(4) Leave the conversation.
+2.oe
+
+2.1s
+He smiles politely but seems unsure.
+"Hee... yes."
+2.1e
+
+2.2s
+He speaks passionately.
+"Love. Pain. The world around us."
+2.2e
+
+2.3s
+His expression dims.
+"That's... unfortunate to hear."
+2.3e
+
+2.4s
+He steps back slightly.
+2.4e
+
+-----------------------------------------------------------------------------
+
+intro3S
+------------------------------------------------------------------------
+Michael seems more emotionally engaged now.
+intro3E
+
+3.os
+(1) "Cool."
+(2) "You're really inspiring."
+(3) "You're kind of fake."
+(4) Leave the conversation.
+3.oe
+
+3.1s
+He nods softly.
+"Thank you."
+3.1e
+
+3.2s
+He smiles warmly.
+"I just want to make people feel something."
+3.2e
+
+3.3s
+He looks hurt.
+"I try to be genuine..."
+3.3e
+
+3.4s
+He looks away.
+3.4e
+
+-----------------------------------------------------------------------------
+
+intro4S
+------------------------------------------------------------------------
+Michael stands calmly, waiting for your last words.
+intro4E
+
+4.os
+(1) "Alright, bye."
+(2) "I'd love to talk again."
+(3) "This was pointless."
+(4) Leave the conversation.
+4.oe
+
+4.1s
+He waves gently.
+"Goodbye."
+4.1e
+
+4.2s
+He smiles brightly.
+"I'd like that very much."
+4.2e
+
+4.3s
+He looks disappointed.
+"That's... okay."
+4.3e
+
+4.4s
+He watches you leave quietly.
+4.4e
+
+---------------------------------------------------------------------
+
+endObliv.s
+------------------------------------------------------------------------
+Michael gives a soft nod.
+
+The moment fades quickly.
+
+Like a song never fully heard.
+endObliv.e
+
+endGood.s
+------------------------------------------------------------------------
+Michael smiles warmly.
+
+"Thank you for listening... truly."
+
+The connection lingers like music in the air.
+endGood.e
+
+endEvil.s
+------------------------------------------------------------------------
+Michael turns away, expression dim.
+
+Not every audience is kind.
+
+And this one hurt.
+endEvil.e
+
+endNeutral.s
+------------------------------------------------------------------------
+Michael relaxes again.
+
+A brief encounter.
+
+Nothing more. Nothing less.
+endNeutral.e
