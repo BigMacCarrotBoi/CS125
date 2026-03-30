@@ -10,7 +10,7 @@ void saveGame(int slot, Progress *p);
 
 // ================= DIALOGUE 1 =================
 int clintonD1(int ch1, Progress *p, int slot) {
-    const char *txt = "epsteinDialogue.txt";
+    const char *txt = "clintonDialogue.txt";
 
     int exitCh1 = 0;
 
@@ -76,7 +76,7 @@ int clintonD1(int ch1, Progress *p, int slot) {
 
 // ================= DIALOGUE 2 =================
 int clintonD2(int ch2, Progress *p, int slot) {
-    const char *txt = "epsteinDialogue.txt";
+    const char *txt = "clintonDialogue.txt";
 
     int exitCh2 = 0;
 
@@ -138,7 +138,7 @@ int clintonD2(int ch2, Progress *p, int slot) {
 
 // ================= DIALOGUE 3 =================
 int clintonD3(int ch3, Progress *p, int slot) {
-    const char *txt = "epsteinDialogue.txt";
+    const char *txt = "clintonDialogue.txt";
 
     int exitCh3 = 0;
 
@@ -200,8 +200,13 @@ int clintonD3(int ch3, Progress *p, int slot) {
 
 // ================= DIALOGUE 4 =================
 int clintonD4(int ch4, Progress *p, int slot) {
-    const char *txt = "epsteinDialogue.txt";
+    const char *txt = "clintonDialogue.txt";
 
+    if (p->c4 != 0) {
+    if (p->c4 == 1) speak(txt, "endObliv.s", "endObliv.e");
+    if (p->c4 == 2) speak(txt, "endGood.s", "endGood.e");
+    if (p->c4 == 3) speak(txt, "endEvil.s", "endEvil.e");
+    if (p->c4 == 4) speak(txt, "endNeutral.s", "endNeutral.e");
     int exitCh4 = 0;
 
     if (p->inDialogueChoice == 0) {
@@ -225,18 +230,21 @@ int clintonD4(int ch4, Progress *p, int slot) {
         switch (ch4) {
             case 1:
                 speak(txt, "4.1s", "4.1e");
+                speak(txt, "endObliv.s", "endObliv.e");
                 p->c4 = 1;
                 exitCh4 = 1;
                 break;
 
             case 2:
                 speak(txt, "4.2s", "4.2e");
+                speak(txt, "endGood.s", "endGood.e");
                 p->c4 = 2;
                 exitCh4 = 1;
                 break;
 
             case 3:
                 speak(txt, "4.3s", "4.3e");
+                speak(txt, "endEvil.s", "endEvil.e");
                 p->c4 = 3;
                 exitCh4 = 1;
                 break;
