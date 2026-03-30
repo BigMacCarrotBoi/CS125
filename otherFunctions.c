@@ -14,28 +14,30 @@ in the maincode.c program.
 
 #define MAX_SAVES 3
 
+const char *saveFiles[MAX_SAVES] = {
+  "save1.txt", "save2.txt", "save3.txt"
+};
+
+// ================= BUFFER CLEAR =================
 void clearInputBuffer() {
     int c;
     while ((c = getchar()) != '\n' && c != EOF);
 }
 
-const char *saveFiles[MAX_SAVES] = {
-  "save1.txt", "save2.txt", "save3.txt"
-};
-
-// CLEAR SCREEN FUNCTION
+// ================= CLEAR SCREEN =================
 void clearscreen() {
-  system("clear");
+    system("clear");
 }
 
 // ================= VALIDATION =================
 int validateSaveName(const char *name) {
+    int i;
+
     if (strlen(name) == 0) {
         printf("Save name cannot be empty.\n");
         return 0;
     }
 
-	int i = 0;
     for (i = 0; name[i] != '\0'; i++) {
         if (!(name[i] >= 'A' && name[i] <= 'Z') &&
             !(name[i] >= 'a' && name[i] <= 'z') &&
@@ -51,41 +53,59 @@ int validateSaveName(const char *name) {
     return 1;
 }
 
+// ================= NAME EXISTS =================
 int nameExists(const char *name) {
-    int i = 0;
+    int i;
+
     for (i = 0; i < MAX_SAVES; i++) {
         FILE *f = fopen(saveFiles[i], "r");
+
         if (f) {
             char existing[50];
-            fgets(existing, sizeof(existing), f);
-            existing[strcspn(existing, "\n")] = 0;
-            fclose(f);
 
-            if (strcmp(existing, name) == 0)
-                return 1;
+            if (fgets(existing, sizeof(existing), f)) {
+                existing[strcspn(existing, "\n")] = 0;
+
+                if (strcmp(existing, name) == 0) {
+                    fclose(f);
+                    return 1;
+                }
+            }
+
+            fclose(f);
         }
     }
+
     return 0;
 }
 
 // ================= SAVE =================
 void saveGame(int slot, Progress *p) {
-  FILE *f = fopen(saveFiles[slot], "w");
-  if (!f) return;
+    FILE *f;
 
-  fprintf(f, "%s\n", p->saveName);
+    if (slot < 0 || slot >= MAX_SAVES) return;
 
-  fprintf(f, "%d %d %d %d\n", p->d1, p->d2, p->d3, p->d4);
-  fprintf(f, "%d %d %d %d\n", p->c1, p->c2, p->c3, p->c4);
-  fprintf(f, "%d %d %d %d\n", p->j1, p->j2, p->j3, p->j4);
+    f = fopen(saveFiles[slot], "w");
+    if (!f) {
+        printf("Error saving file.\n");
+        return;
+    }
 
-  fprintf(f, "%d %d\n", p->e_currentDialogue, p->e_inChoice);
-  fprintf(f, "%d %d\n", p->c_currentDialogue, p->c_inChoice);
-  fprintf(f, "%d %d\n", p->j_currentDialogue, p->j_inChoice);
+    fprintf(f, "%s\n", p->saveName);
 
-  fprintf(f, "%d %d %d\n", p->epsteinDone, p->clintonDone, p->jacksonDone);
+    fprintf(f, "%d %d %d %d\n", p->d1, p->d2, p->d3, p->d4);
+    fprintf(f, "%d %d %d %d\n", p->c1, p->c2, p->c3, p->c4);
+    fprintf(f, "%d %d %d %d\n", p->j1, p->j2, p->j3, p->j4);
 
-  fclose(f);
+    fprintf(f, "%d %d\n", p->e_currentDialogue, p->e_inChoice);
+    fprintf(f, "%d %d\n", p->c_currentDialogue, p->c_inChoice);
+    fprintf(f, "%d %d\n", p->j_currentDialogue, p->j_inChoice);
+
+    fprintf(f, "%d %d %d\n", p->epsteinDone, p->clintonDone, p->jacksonDone);
+
+    fclose(f);
+
+    printf("\n--Data Autosaved to slot %d (%s)\n", slot + 1, p->saveName);
 }
 
 // ================= DELETE =================
@@ -93,7 +113,8 @@ void deleteSave() {
     int slot;
 
     while (1) {
-        printf("Enter save slot to delete (1-3): ");
+        printf(">> Enter save slot to delete (1-3): ");
+
         if (scanf("%d", &slot) != 1) {
             printf("Invalid input.\n");
             clearInputBuffer();
@@ -109,25 +130,28 @@ void deleteSave() {
     }
 
     clearInputBuffer();
-    remove(saveFiles[slot - 1]);
-    printf("Save deleted.\n");
+
+    if (remove(saveFiles[slot - 1]) == 0)
+        printf("Save deleted.\n");
+    else
+        printf("No save found in that slot.\n");
 }
 
 // ================= LIST SAVES =================
 int listSaves() {
+    int i;
+    int hasSave = 0;
+
     printf("\nSave Slots:\n");
-	int i = 0;
-	
+
     for (i = 0; i < MAX_SAVES; i++) {
         FILE *f = fopen(saveFiles[i], "r");
 
         if (f) {
             Progress temp = {0};
+            hasSave = 1;
 
-            if (!fgets(temp.saveName, sizeof(temp.saveName), f)) {
-                strcpy(temp.saveName, "[Corrupt]");
-            }
-
+            fgets(temp.saveName, sizeof(temp.saveName), f);
             temp.saveName[strcspn(temp.saveName, "\n")] = 0;
 
             fscanf(f, "%d %d %d %d", &temp.d1, &temp.d2, &temp.d3, &temp.d4);
@@ -154,10 +178,17 @@ int listSaves() {
         }
     }
 
+    if (!hasSave) {
+        printf("\nNo save files found.\n");
+        return -1;
+    }
+
     int choice;
 
+    // choose slot for load/save
     while (1) {
         printf("Choose slot (1-3): ");
+
         if (scanf("%d", &choice) != 1) {
             printf("Invalid input.\n");
             clearInputBuffer();
@@ -169,34 +200,38 @@ int listSaves() {
             continue;
         }
 
+        clearInputBuffer();
+
+        // check if file exists
+        FILE *test = fopen(saveFiles[choice - 1], "r");
+        if (!test) {
+            printf("\nThat slot is empty. Returning to menu.\n");
+            return -1;
+        }
+
+        fclose(test);
         break;
     }
 
-    clearInputBuffer();
     return choice - 1;
 }
 
 // ================= LOAD =================
 Progress loadGame(int slot) {
     Progress p = {0};
+    FILE *f;
 
-    FILE *f = fopen(saveFiles[slot], "r");
-    if (!f) {
-        printf("Failed to load save.\n");
-        return p;
-    }
+    if (slot < 0 || slot >= MAX_SAVES) return p;
 
-    if (!fgets(p.saveName, sizeof(p.saveName), f)) {
-        printf("Corrupt save file.\n");
-        fclose(f);
-        return p;
-    }
+    f = fopen(saveFiles[slot], "r");
+    if (!f) return p;
 
+    fgets(p.saveName, sizeof(p.saveName), f);
     p.saveName[strcspn(p.saveName, "\n")] = 0;
 
-    if (fscanf(f, "%d %d %d %d", &p.d1, &p.d2, &p.d3, &p.d4) != 4) goto fail;
-    if (fscanf(f, "%d %d %d %d", &p.c1, &p.c2, &p.c3, &p.c4) != 4) goto fail;
-    if (fscanf(f, "%d %d %d %d", &p.j1, &p.j2, &p.j3, &p.j4) != 4) goto fail;
+    fscanf(f, "%d %d %d %d", &p.d1, &p.d2, &p.d3, &p.d4);
+    fscanf(f, "%d %d %d %d", &p.c1, &p.c2, &p.c3, &p.c4);
+    fscanf(f, "%d %d %d %d", &p.j1, &p.j2, &p.j3, &p.j4);
 
     fscanf(f, "%d %d", &p.e_currentDialogue, &p.e_inChoice);
     fscanf(f, "%d %d", &p.c_currentDialogue, &p.c_inChoice);
@@ -205,46 +240,49 @@ Progress loadGame(int slot) {
     fscanf(f, "%d %d %d", &p.epsteinDone, &p.clintonDone, &p.jacksonDone);
 
     fclose(f);
-    return p;
 
-fail:
-    printf("Save file corrupted.\n");
-    fclose(f);
-    return (Progress){0};
+    return p;
 }
 
 // ================= NEW GAME =================
 int newGame(Progress *p) {
+    int slot;
+
     p->epsteinDone = 0;
     p->clintonDone = 0;
     p->jacksonDone = 0;
 
-    clearInputBuffer();
-
     while (1) {
-        printf("Enter save name (letters/numbers/_ only): ");
+        printf(">> Enter save name (letters/numbers/_ only): ");
 
-        if (!fgets(p->saveName, sizeof(p->saveName), stdin)) {
+        if (!fgets(p->saveName, sizeof(p->saveName), stdin))
             continue;
-        }
 
         p->saveName[strcspn(p->saveName, "\n")] = 0;
 
-        if (!validateSaveName(p->saveName)) continue;
+        if (!validateSaveName(p->saveName))
+            continue;
 
         if (nameExists(p->saveName)) {
-            printf("Save name already exists.\n");
+            printf("Name already exists.\n");
             continue;
         }
 
         break;
     }
 
-    int slot = listSaves();
+    printf(">> Choose a slot to save:\n");
+    slot = listSaves();
+
+    if (slot == -1) {
+        slot = 0; // default if none exist
+    }
+
     saveGame(slot, p);
 
     return slot;
 }
+
 // ================= MENU =================
 int menu() {
     int choice;
@@ -269,6 +307,7 @@ int menu() {
     clearInputBuffer();
     return choice;
 }
+
 // Reads the content of a text file into a dynamically allocated string.
  
 char* frame(const char* filename) {
