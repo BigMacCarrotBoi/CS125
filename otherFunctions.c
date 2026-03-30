@@ -347,14 +347,6 @@ int listSavesNew() {
 
         clearInputBuffer();
 
-        // check if file exists
-        FILE *test = fopen(saveFiles[choice - 1], "r");
-        if (!test) {
-            printf("\nThat slot is empty. Returning to menu.\n");
-            return -1;
-        }
-
-        fclose(test);
         break;
     }
 
