@@ -148,8 +148,18 @@ even fathom what cutting my hair would do."
 4.4s
 Epstein glances at you for a moment as you walk away, before losing interest.
 4.4e
+---------------------------------------------------------------------
+endObliv.s
+------------------------------------------------------------------------
+You parted ways akwardly at that moment, not knowing who Epstein was.
+
+Epstein, on the other hand, went on to know all about who he was after
+going on a self exploration and understanding medidation trip in the
+Chinese mountains.
+endObliv.e
 
 endGood.s
+------------------------------------------------------------------------
 Epstein waves goodbye with a smirk on his face...
 
 When he comes back, his hairappears neater and his face is glowing. He's completely 
@@ -159,6 +169,7 @@ different now, in fact...
 endGood.e
 
 endEvil.s
+------------------------------------------------------------------------
 Epstein takes you with him into his porsche and drives into a secret underground tunnel... 
 The tunnel gets dark and you become very sleepy...
 
@@ -169,6 +180,7 @@ You're stuck on an island.
 endEvil.e
 
 endNeutral.s
+------------------------------------------------------------------------
 Something about this man is certainly off as he looks at you with his head tilted and mouth is
 slightly grinning.
 
