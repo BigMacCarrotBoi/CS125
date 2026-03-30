@@ -28,7 +28,7 @@ int main() {
     Progress progress = {0};
     int slot = -1;
 
-    while (postChoic != 4) {
+    while (menuChoice != 4) {
         int menuChoice = menu();
 
         if (menuChoice == 1) {
