@@ -32,8 +32,8 @@ void saveGame(int slot, Progress *p) {
     fprintf(f, "%d %d %d %d\n", p->c1, p->c2, p->c3, p->c4);
     fprintf(f, "%d %d %d %d\n", p->j1, p->j2, p->j3, p->j4);
 
-    fprintf(f, "%d %d\n", p->currentDialogue, p->inDialogueChoice);
-	fprintf(f, "%d %d %d\n", p->epsteinDone, p->clintonDone, p->jacksonDone);
+    fprintf(f, "%d %d\n", p.currentDialogue, p.inDialogueChoice);
+	fprintf(f, "%d %d %d\n", p.epsteinDone, p.clintonDone, p.jacksonDone);
 
     fclose(f);
 }
@@ -86,7 +86,7 @@ Progress loadGame(int slot) {
     fscanf(f, "%d %d %d %d", &p.j1, &p.j2, &p.j3, &p.j4);
 
     fscanf(f, "%d %d", &p.currentDialogue, &p.inDialogueChoice);
-	fscanf(f, "%d %d %d", &p->epsteinDone, &p->clintonDone, &p->jacksonDone);
+	fscanf(f, "%d %d %d", &p.epsteinDone, &p.clintonDone, &p.jacksonDone);
 	
     fclose(f);
     return p;
