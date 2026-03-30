@@ -208,6 +208,7 @@ int clintonD4(int ch4, Progress *p, int slot) {
     if (p->c4 == 3) speak(txt, "endEvil.s", "endEvil.e");
     if (p->c4 == 4) speak(txt, "endNeutral.s", "endNeutral.e");
     return 0;
+    }
     
     int exitCh4 = 0;
 
