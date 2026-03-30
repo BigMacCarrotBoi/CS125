@@ -24,12 +24,24 @@ void clearscreen() {
 }
 
 // ================= VALIDATION =================
-int isValidName(const char *name) {
-    if (strlen(name) == 0) return 0;
-    int i = 0;
-    for (i = 0; name[i]; i++) {
-        if (name[i] < 32 || name[i] > 126) return 0;
+int validateSaveName(const char *name) {
+    if (strlen(name) == 0) {
+        printf("Save name cannot be empty.\n");
+        return 0;
     }
+
+    for (int i = 0; name[i] != '\0'; i++) {
+        if (!(name[i] >= 'A' && name[i] <= 'Z') &&
+            !(name[i] >= 'a' && name[i] <= 'z') &&
+            !(name[i] >= '0' && name[i] <= '9') &&
+            name[i] != '_') {
+
+            printf("Invalid character detected.\n");
+            printf("Only letters, numbers, and underscores allowed.\n");
+            return 0;
+        }
+    }
+
     return 1;
 }
 
@@ -154,28 +166,21 @@ Progress loadGame(int slot) {
 
 // ================= NEW GAME =================
 int newGame(Progress *p) {
-    char buffer[50];
-
     p->epsteinDone = 0;
     p->clintonDone = 0;
     p->jacksonDone = 0;
 
     while (1) {
-        printf("Enter save name: ");
-        scanf("%49s", buffer);
+        printf("Enter save name (letters/numbers/_ only): ");
 
-        if (!isValidName(buffer)) {
-            printf("Invalid name.\n");
-            continue;
-        }
+        // CLEAR BUFFER FIRST
+        int c;
+        while ((c = getchar()) != '\n' && c != EOF);
 
-        if (nameExists(buffer)) {
-            printf("Name already exists.\n");
-            continue;
-        }
+        fgets(p->saveName, sizeof(p->saveName), stdin);
+        p->saveName[strcspn(p->saveName, "\n")] = 0;
 
-        strcpy(p->saveName, buffer);
-        break;
+        if (validateSaveName(p->saveName)) break;
     }
 
     int slot = listSaves();
