@@ -201,7 +201,14 @@ int epsteinD3(int ch3, Progress *p, int slot) {
 // ================= DIALOGUE 4 =================
 int epsteinD4(int ch4, Progress *p, int slot) {
     const char *txt = "epsteinDialogue.txt";
-
+    
+    if (p->d1 != 0) {
+    if (p->d1 == 1) speak(txt, "1.1s", "1.1e");
+    if (p->d1 == 2) speak(txt, "1.2s", "1.2e");
+    if (p->d1 == 3) speak(txt, "1.3s", "1.3e");
+    if (p->d1 == 4) speak(txt, "1.4s", "1.4e");
+    return 0;
+    }
     int exitCh4 = 0;
 
     if (p->inDialogueChoice == 0) {
@@ -249,6 +256,7 @@ int epsteinD4(int ch4, Progress *p, int slot) {
 
             default:
                 speak(txt, "errorS", "errorEnd");
+                p->inDialogueChoice = 0;
                 break;
         }
     }
