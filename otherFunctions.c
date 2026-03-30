@@ -256,7 +256,7 @@ void runEpstein(Progress *p, int slot) {
     int exitFlag = 0;
 
     // Start from saved dialogue
-    switch (p->currentDialogue) {
+    switch (p->e_currentDialogue) {
         case 0:
         case 1:
             exitFlag = epsteinD1(p->d1, p, slot);
@@ -277,7 +277,7 @@ void runEpstein(Progress *p, int slot) {
 
     // Reset after completion
     p->epsteinDone = 1;
-    p->inDialogueChoice = 0;
+    p->e_inChoice = 0;
     saveGame(slot, p);
 }
 // ================= CLINTON ROUTER =================
@@ -285,7 +285,7 @@ void runClinton(Progress *p, int slot) {
     int exitFlag = 0;
 
     // Start from saved dialogue
-    switch (p->currentDialogue) {
+    switch (p->c_currentDialogue) {
         case 0:
         case 1:
             exitFlag = clintonD1(p->c1, p, slot);
@@ -302,9 +302,10 @@ void runClinton(Progress *p, int slot) {
     }
 
     // Ending
-    checkEpsteinEnding(p);
+    checkClintonEnding(p);
 
     p->clintonDone = 1;
+	p->c_inChoice
     saveGame(slot, p);
 }
 
@@ -313,7 +314,7 @@ void runJackson(Progress *p, int slot) {
     int exitFlag = 0;
 
     // Start from saved dialogue
-    switch (p->currentDialogue) {
+    switch (p->j_currentDialogue) {
         case 0:
         case 1:
             exitFlag = jacksonD1(p->j1, p, slot);
@@ -330,10 +331,10 @@ void runJackson(Progress *p, int slot) {
     }
 
     // Ending
-    checkEpsteinEnding(p);
+    checkJacksonEnding(p);
 
     // Reset after completion
     p->jacksonDone = 1;
-    p->inDialogueChoice = 0;
+    p->j_inChoice = 0;
     saveGame(slot, p);
 }
