@@ -208,6 +208,7 @@ int jacksonD4(int ch4, Progress *p, int slot) {
     if (p->j4 == 3) speak(txt, "endEvil.s", "endEvil.e");
     if (p->j4 == 4) speak(txt, "endNeutral.s", "endNeutral.e");
     return 0;
+    }
 
     int exitCh4 = 0;
 
