@@ -28,9 +28,9 @@ int main() {
     Progress progress = {0};
     int slot = -1;
     int menuChoice = 0;
-    
+
     while (menuChoice != 4) {
-        int menuChoice = menu();
+        menuChoice = menu();
 
         if (menuChoice == 1) {
             slot = newGame(&progress);
@@ -46,7 +46,9 @@ int main() {
         else {
             return 0;
         }
+
         int postChoice = 0;
+
         // ================= GAME LOOP =================
         while (postChoice != 4) {
             clearscreen();
@@ -56,6 +58,13 @@ int main() {
             char character[20];
 
             printf("\nChoose character:\n");
+            printf("1. Epstein\n2. Bill Clinton\n3. Michael Jackson\n4. Back to Menu\n");
+            printf("Choice: ");
+            scanf("%d", &choice);
+
+            if (choice == 4) break;
+
+            // ? Prevent replaying completed routes
             if (choice == 1 && progress.epsteinDone) {
                 printf("\nYou have already completed Epstein's route.\n");
                 continue;
@@ -68,11 +77,6 @@ int main() {
                 printf("\nYou have already completed Jackson's route.\n");
                 continue;
             }
-            printf("1. Epstein\n2. Bill Clinton\n3. Michael Jackson\n4. Back to Menu\n");
-            printf("Choice: ");
-            scanf("%d", &choice);
-
-            if (choice == 4) break;
 
             if (choice == 1) strcpy(character, "Epstein");
             if (choice == 2) strcpy(character, "Bill Clinton");
@@ -98,7 +102,6 @@ int main() {
             }
 
             printf("\n1. Talk to someone else\n2. Save & Continue\n3. Main Menu\n4. Quit\nChoice: ");
-            int postChoice;
             scanf("%d", &postChoice);
 
             saveGame(slot, &progress);
