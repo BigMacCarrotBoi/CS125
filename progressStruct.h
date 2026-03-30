@@ -6,6 +6,10 @@ typedef struct {
     int c1, c2, c3, c4;
     int j1, j2, j3, j4;
 
+    int epsteinDone;
+    int clintonDone;
+    int jacksonDone;
+
     int currentDialogue;
     int inDialogueChoice;
 
