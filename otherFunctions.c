@@ -30,7 +30,8 @@ int validateSaveName(const char *name) {
         return 0;
     }
 
-    for (int i = 0; name[i] != '\0'; i++) {
+	int i = 0;
+    for (i = 0; name[i] != '\0'; i++) {
         if (!(name[i] >= 'A' && name[i] <= 'Z') &&
             !(name[i] >= 'a' && name[i] <= 'z') &&
             !(name[i] >= '0' && name[i] <= '9') &&
