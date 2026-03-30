@@ -116,8 +116,9 @@ void deleteSave() {
 // ================= LIST SAVES =================
 int listSaves() {
     printf("\nSave Slots:\n");
-
-    for (int i = 0; i < MAX_SAVES; i++) {
+	int i = 0;
+	
+    for (i = 0; i < MAX_SAVES; i++) {
         FILE *f = fopen(saveFiles[i], "r");
 
         if (f) {
