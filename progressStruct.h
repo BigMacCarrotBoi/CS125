@@ -10,8 +10,9 @@ typedef struct {
     int clintonDone;
     int jacksonDone;
 
-    int currentDialogue;
-    int inDialogueChoice;
+    int e_currentDialogue, e_inChoice;
+    int c_currentDialogue, c_inChoice;
+    int j_currentDialogue, j_inChoice;
 
     char saveName[50];
 } Progress;
