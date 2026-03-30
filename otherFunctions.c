@@ -171,14 +171,17 @@ int newGame(Progress *p) {
     p->clintonDone = 0;
     p->jacksonDone = 0;
 
+    int c;
+    while ((c = getchar()) != '\n' && c != EOF); // CLEAR ONCE
+
     while (1) {
         printf("Enter save name (letters/numbers/_ only): ");
 
-        // CLEAR BUFFER FIRST
-        int c;
-        while ((c = getchar()) != '\n' && c != EOF);
+        if (fgets(p->saveName, sizeof(p->saveName), stdin) == NULL) {
+            continue;
+        }
 
-        fgets(p->saveName, sizeof(p->saveName), stdin);
+        // Remove newline
         p->saveName[strcspn(p->saveName, "\n")] = 0;
 
         if (validateSaveName(p->saveName)) break;
@@ -189,7 +192,6 @@ int newGame(Progress *p) {
 
     return slot;
 }
-
 // ================= MENU =================
 int menu() {
     int choice;
