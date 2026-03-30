@@ -27,7 +27,8 @@ int main() {
 
     Progress progress = {0};
     int slot = -1;
-
+    int menuChoice = 0;
+    
     while (menuChoice != 4) {
         int menuChoice = menu();
 
@@ -45,7 +46,7 @@ int main() {
         else {
             return 0;
         }
-
+        int postChoice = 0;
         // ================= GAME LOOP =================
         while (postChoice != 4) {
             clearscreen();
