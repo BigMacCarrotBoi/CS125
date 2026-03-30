@@ -207,6 +207,8 @@ int clintonD4(int ch4, Progress *p, int slot) {
     if (p->c4 == 2) speak(txt, "endGood.s", "endGood.e");
     if (p->c4 == 3) speak(txt, "endEvil.s", "endEvil.e");
     if (p->c4 == 4) speak(txt, "endNeutral.s", "endNeutral.e");
+    return 0;
+    
     int exitCh4 = 0;
 
     if (p->inDialogueChoice == 0) {
