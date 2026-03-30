@@ -244,47 +244,87 @@ void checkJacksonEnding(Progress *p) {
 void runEpstein(Progress *p, int slot) {
     int exitFlag = 0;
 
-    // Resume support
-    if (p->currentDialogue == 1) exitFlag = epsteinD1(p->d1, p, slot);
-    if (!exitFlag && p->currentDialogue <= 1) exitFlag = epsteinD1(p->d1, p, slot);
-
-    if (!exitFlag && p->currentDialogue <= 2) exitFlag = epsteinD2(p->d2, p, slot);
-    if (!exitFlag && p->currentDialogue <= 3) exitFlag = epsteinD3(p->d3, p, slot);
-    if (!exitFlag && p->currentDialogue <= 4) exitFlag = epsteinD4(p->d4, p, slot);
-
-    if (!exitFlag) {
-        checkEpsteinEnding(p);
+    // Start from saved dialogue
+    switch (p->currentDialogue) {
+        case 0:
+        case 1:
+            exitFlag = epsteinD1(p->d1, p, slot);
+            if (exitFlag) return;
+        case 2:
+            exitFlag = epsteinD2(p->d2, p, slot);
+            if (exitFlag) return;
+        case 3:
+            exitFlag = epsteinD3(p->d3, p, slot);
+            if (exitFlag) return;
+        case 4:
+            exitFlag = epsteinD4(p->d4, p, slot);
+            if (exitFlag) return;
     }
-}
 
+    // Ending
+    checkEpsteinEnding(p);
+
+    // Reset after completion
+    p->currentDialogue = 0;
+    p->inDialogueChoice = 0;
+    saveGame(slot, p);
+}
 // ================= CLINTON ROUTER =================
 void runClinton(Progress *p, int slot) {
     int exitFlag = 0;
 
-    if (p->currentDialogue == 1) exitFlag = clintonD1(p->c1, p, slot);
-    if (!exitFlag && p->currentDialogue <= 1) exitFlag = clintonD1(p->c1, p, slot);
-
-    if (!exitFlag && p->currentDialogue <= 2) exitFlag = clintonD2(p->c2, p, slot);
-    if (!exitFlag && p->currentDialogue <= 3) exitFlag = clintonD3(p->c3, p, slot);
-    if (!exitFlag && p->currentDialogue <= 4) exitFlag = clintonD4(p->c4, p, slot);
-
-    if (!exitFlag) {
-        checkClintonEnding(p);
+    // Start from saved dialogue
+    switch (p->currentDialogue) {
+        case 0:
+        case 1:
+            exitFlag = clintonD1(p->c1, p, slot);
+            if (exitFlag) return;
+        case 2:
+            exitFlag = clintonD2(p->c2, p, slot);
+            if (exitFlag) return;
+        case 3:
+            exitFlag = clintonD3(p->c3, p, slot);
+            if (exitFlag) return;
+        case 4:
+            exitFlag = clintonD4(p->c4, p, slot);
+            if (exitFlag) return;
     }
+
+    // Ending
+    checkEpsteinEnding(p);
+
+    // Reset after completion
+    p->currentDialogue = 0;
+    p->inDialogueChoice = 0;
+    saveGame(slot, p);
 }
 
 // ================= JACKSON ROUTER =================
 void runJackson(Progress *p, int slot) {
     int exitFlag = 0;
 
-    if (p->currentDialogue == 1) exitFlag = jacksonD1(p->j1, p, slot);
-    if (!exitFlag && p->currentDialogue <= 1) exitFlag = jacksonD1(p->j1, p, slot);
-
-    if (!exitFlag && p->currentDialogue <= 2) exitFlag = jacksonD2(p->j2, p, slot);
-    if (!exitFlag && p->currentDialogue <= 3) exitFlag = jacksonD3(p->j3, p, slot);
-    if (!exitFlag && p->currentDialogue <= 4) exitFlag = jacksonD4(p->j4, p, slot);
-
-    if (!exitFlag) {
-        checkJacksonEnding(p);
+    // Start from saved dialogue
+    switch (p->currentDialogue) {
+        case 0:
+        case 1:
+            exitFlag = jacksonD1(p->j1, p, slot);
+            if (exitFlag) return;
+        case 2:
+            exitFlag = jacksonD2(p->j2, p, slot);
+            if (exitFlag) return;
+        case 3:
+            exitFlag = jacksonD3(p->j3, p, slot);
+            if (exitFlag) return;
+        case 4:
+            exitFlag = jacksonD4(p->j4, p, slot);
+            if (exitFlag) return;
     }
+
+    // Ending
+    checkEpsteinEnding(p);
+
+    // Reset after completion
+    p->currentDialogue = 0;
+    p->inDialogueChoice = 0;
+    saveGame(slot, p);
 }
