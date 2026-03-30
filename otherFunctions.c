@@ -338,7 +338,7 @@ int newGame(Progress *p) {
     }
 
     printf(">> Choose a slot to save:\n");
-    slot = listSaves();
+    slot = listSavesNew();
 
     if (slot == -1) {
         slot = 0; // default if none exist
