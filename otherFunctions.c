@@ -444,7 +444,7 @@ void runClinton(Progress *p, int slot) {
     checkClintonEnding(p);
 
     p->clintonDone = 1;
-	p->c_inChoice;
+	p->c_inChoice = 0;
     saveGame(slot, p);
 }
 
