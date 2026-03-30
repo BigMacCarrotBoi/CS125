@@ -202,11 +202,11 @@ int epsteinD3(int ch3, Progress *p, int slot) {
 int epsteinD4(int ch4, Progress *p, int slot) {
     const char *txt = "epsteinDialogue.txt";
     
-    if (p->d1 != 0) {
-    if (p->d1 == 1) speak(txt, "1.1s", "1.1e");
-    if (p->d1 == 2) speak(txt, "1.2s", "1.2e");
-    if (p->d1 == 3) speak(txt, "1.3s", "1.3e");
-    if (p->d1 == 4) speak(txt, "1.4s", "1.4e");
+    if (p->d4 != 0) {
+    if (p->d4 == 1) speak(txt, "endObliv.s", "endObliv.e");
+    if (p->d4 == 2) speak(txt, "endGood.s", "endGood.e");
+    if (p->d4 == 3) speak(txt, "endEvil.s", "endEvil.e");
+    if (p->d4 == 4) speak(txt, "endNeutral.s", "endNeutral.e");
     return 0;
     }
     int exitCh4 = 0;
