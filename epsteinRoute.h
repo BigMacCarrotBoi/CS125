@@ -209,6 +209,7 @@ int epsteinD4(int ch4, Progress *p, int slot) {
     if (p->d4 == 4) speak(txt, "endNeutral.s", "endNeutral.e");
     return 0;
     }
+    
     int exitCh4 = 0;
 
     if (p->inDialogueChoice == 0) {
@@ -232,7 +233,7 @@ int epsteinD4(int ch4, Progress *p, int slot) {
         switch (ch4) {
             case 1:
                 speak(txt, "4.1s", "4.1e");
-                speak(txt, "endObliv.s", "endObliv.e")
+                speak(txt, "endObliv.s", "endObliv.e");
                 p->d4 = 1;
                 exitCh4 = 1;
                 break;
