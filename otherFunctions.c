@@ -138,7 +138,7 @@ void deleteSave() {
 }
 
 // ================= LIST SAVES =================
-int listSaves() {
+int listSavesNew() {
     int i;
     int hasSave = 0;
 
@@ -177,6 +177,72 @@ int listSaves() {
             printf("%d. [Empty]\n", i + 1);
         }
     }
+
+	int listSaves() {
+    int i;
+    int hasSave = 0;
+
+    printf("\nSave Slots:\n");
+
+    for (i = 0; i < MAX_SAVES; i++) {
+        FILE *f = fopen(saveFiles[i], "r");
+
+        if (f) {
+            Progress temp = {0};
+            hasSave = 1;
+
+            fgets(temp.saveName, sizeof(temp.saveName), f);
+            temp.saveName[strcspn(temp.saveName, "\n")] = 0;
+
+            fscanf(f, "%d %d %d %d", &temp.d1, &temp.d2, &temp.d3, &temp.d4);
+            fscanf(f, "%d %d %d %d", &temp.c1, &temp.c2, &temp.c3, &temp.c4);
+            fscanf(f, "%d %d %d %d", &temp.j1, &temp.j2, &temp.j3, &temp.j4);
+
+            fscanf(f, "%d %d", &temp.e_currentDialogue, &temp.e_inChoice);
+            fscanf(f, "%d %d", &temp.c_currentDialogue, &temp.c_inChoice);
+            fscanf(f, "%d %d", &temp.j_currentDialogue, &temp.j_inChoice);
+
+            fscanf(f, "%d %d %d", &temp.epsteinDone, &temp.clintonDone, &temp.jacksonDone);
+
+            fclose(f);
+
+            printf("%d. %s [E:%s] [C:%s] [J:%s]\n",
+                i + 1,
+                temp.saveName,
+                temp.epsteinDone ? "Done" : "Pending",
+                temp.clintonDone ? "Done" : "Pending",
+                temp.jacksonDone ? "Done" : "Pending"
+            );
+        } else {
+            printf("%d. [Empty]\n", i + 1);
+        }
+    }
+		
+    int choice;
+
+    // choose slot for load/save
+    while (1) {
+        printf("Choose slot (1-3): ");
+
+        if (scanf("%d", &choice) != 1) {
+            printf("Invalid input.\n");
+            clearInputBuffer();
+            continue;
+        }
+
+        if (choice < 1 || choice > 3) {
+            printf("Invalid slot.\n");
+            continue;
+        }
+
+        clearInputBuffer();
+		
+        break;
+    }
+
+    return choice - 1;
+}
+
 
     if (!hasSave) {
         printf("\nNo save files found.\n");
