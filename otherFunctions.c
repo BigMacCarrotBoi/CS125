@@ -113,7 +113,7 @@ void deleteSave() {
     int slot;
 
     while (1) {
-        printf(">> Enter save slot to delete (1-3): ");
+        printf(">> (Saftey net) Confirm which file to delete (1-3): ");
 
         if (scanf("%d", &slot) != 1) {
             printf("Invalid input.\n");
