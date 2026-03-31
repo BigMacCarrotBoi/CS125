@@ -188,7 +188,7 @@ int listSaves() {
 
     // choose slot for load/save
     while (1) {
-        printf("Choose slot (1-3): ");
+        printf(">> Choose slot (1-3): ");
 
         if (scanf("%d", &choice) != 1) {
             printf("Invalid input.\n");
@@ -257,7 +257,7 @@ int listSavesNew() {
     }
 
     while (1) {
-        printf("Choose slot (1-3): ");
+        printf(">> Choose slot (1-3): ");
 
         if (scanf("%d", &choice) != 1) {
             printf("Invalid input.\n");
