@@ -331,8 +331,7 @@ int newGame(Progress *p) {
 
         break;
     }
-
-    printf(">> Choose a slot to save:\n");
+	
     slot = listSavesNew();
 
 	saveGame(slot, p);
