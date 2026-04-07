@@ -309,9 +309,7 @@ Progress loadGame(int slot) {
 int newGame(Progress *p) {
     int slot;
 
-    p->epsteinDone = 0;
-    p->clintonDone = 0;
-    p->jacksonDone = 0;
+    memset(p, 0, sizeof(Progress));
 
     while (1) {
         printf(">> Enter save name (letters/numbers/_ only): ");
